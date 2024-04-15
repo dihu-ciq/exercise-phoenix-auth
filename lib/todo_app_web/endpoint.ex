@@ -11,6 +11,12 @@ defmodule TodoAppWeb.Endpoint do
     same_site: "Lax"
   ]
 
+  plug Plug.Static,
+    at: "/kaffy", # or "/path/to/your/static/kaffy"
+    from: :kaffy,
+    gzip: false,
+    only: ~w(assets)
+
   socket "/live", Phoenix.LiveView.Socket,
     websocket: [connect_info: [session: @session_options]],
     longpoll: [connect_info: [session: @session_options]]

@@ -64,3 +64,22 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+config :kaffy,
+  # required keys
+  otp_app: :todo_app, # required
+  ecto_repo: TodoApp.Repo, # required
+  router: TodoAppWeb.Router, # required
+  # optional keys
+  admin_title: "My Todo App",
+  admin_logo: [
+    url: "https://example.com/img/logo.png",
+    style: "width:200px;height:66px;"
+  ],
+  admin_logo_mini: "/images/logo-mini.png",
+  hide_dashboard: true,
+  home_page: [schema: [:accounts, :user]],
+  enable_context_dashboards: true, # since v0.10.0
+  admin_footer: "Kaffy &copy; 2023" # since v0.10.0,
+
+#  resources: &TodoApp.Kaffy.Config.create_resources/1
